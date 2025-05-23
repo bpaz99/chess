@@ -7,7 +7,7 @@ export type CellType = {
 export type PieceType = {
 	id: string | null;
 	name: string;
-	icon: string;
+	icon: React.ReactNode | null;
 	color: string;
 	validMoves: {x: number, y: number}[] | null;
 	position: {
@@ -15,11 +15,6 @@ export type PieceType = {
 		col: number;
 	} | null;
 	isInitialMove: boolean;
-}
-
-export type BoardType = {
-	board: CellType[][];
-	pieces: PieceType[];
 }
 
 export type PossibleBoardsType = "empty" | "chess"; // TBI

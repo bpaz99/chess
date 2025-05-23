@@ -18,7 +18,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-400 flex flex-col items-center justify-center p-6">
+    <div className="min-h-screen bg-slate-400 flex flex-col items-center justify-center p-6">
       <div className="grid grid-cols-2 gap-4">
         <h1 className="text-3xl font-bold mb-6 col-span-2">Chess</h1>
 
@@ -31,14 +31,24 @@ const App: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
-          <h1 className="col-span-2">Pieces</h1>
-          <div className="flex flex-col gap-2">
-            <Deck variant="white" />
-            <Deck variant="black" />
-          </div>
+        <div className="flex flex-col gap-4 bg-slate-500 p-4 rounded-lg w-[300px] md:w-[400px]">
+          <p className="text-3xl font-bold">Pieces</p>
+			<div className="grid md:grid-cols-2 gap-4">
+				<div className="flex flex-col gap-2">
+					<h1 className="text-2xl font-bold text-white">White</h1>
+					<Deck variant="white" />
+				</div>
+				<div className="flex flex-col gap-2">
+					<h1 className="text-2xl font-bold">Black</h1>
+					<Deck variant="black" />
+				</div>
+			</div>
+			<p className="text-sm text-gray-500">
+				Click on a piece to select it.
+			</p>
         </div>
       </div>
+
     </div>
   );
 };

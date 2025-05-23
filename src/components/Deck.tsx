@@ -1,10 +1,30 @@
 import { PIECES } from "@/lib/constants";
 import { useChessStore } from "./stores/chess";
 import { cn } from "@/lib/utils";
-import { useEffect, useState } from "react";
-
+import { FaCrown, FaChessQueen, FaChessRook, FaChessBishop, FaChessKnight, FaChessPawn } from "react-icons/fa";
 const Deck = ({ variant }: { variant: "white" | "black" }) => {
   const { selectPiece, selectedPiece, deselectPiece } = useChessStore();
+
+  const getPieceIcon = (pieceName: string, variant: "white" | "black") => {
+	const className = `text-2xl stroke-1 ${variant === "white" ? "text-white" : "text-black"}`
+
+    switch (pieceName) {
+      case "King":
+        return <FaCrown className={className} />;
+      case "Queen":
+        return <FaChessQueen className={className} />;
+      case "Rook":
+        return <FaChessRook className={className} />;
+      case "Bishop":
+        return <FaChessBishop className={className} />;
+      case "Knight":
+        return <FaChessKnight className={className} />;
+      case "Pawn":
+        return <FaChessPawn className={className} />;
+      default:
+        return null;
+    }
+  };
 
   const pieces = PIECES.map((piece) => ({
     ...piece,
@@ -12,7 +32,10 @@ const Deck = ({ variant }: { variant: "white" | "black" }) => {
     id: null,
     position: null,
     isInitialMove: true,
+    icon: getPieceIcon(piece.name, variant),
   }));
+
+
 
   return (
     <div className="flex flex-col gap-2">

@@ -1,6 +1,5 @@
 import type {
   CellType,
-  BoardType,
   PossibleBoardsType,
   PieceType,
 } from "@/types";
